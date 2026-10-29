@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxia de Amor - Spiderman & Hello Kitty</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #05000a;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .title-text {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 90%;
+            padding: 15px 35px;
+            background: rgba(255, 20, 147, 0.25);
+            backdrop-filter: blur(6px);
+            border: 2px solid rgba(255, 105, 180, 0.8);
+            border-radius: 60px;
+            box-shadow: 0 0 40px rgba(255, 20, 147, 0.6), inset 0 0 20px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 0 10px #ff1493, 0 0 30px #ff69b4;
+            z-index: 10;
+            cursor: pointer;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s;
+            user-select: none;
+        }
+        .title-text:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 0 60px rgba(255, 20, 147, 0.9), inset 0 0 30px rgba(255, 105, 180, 0.5);
+        }
+        .title-text:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        .center-images {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #ff1493, inset 0 0 20px #ff1493;
+            overflow: hidden;
+            z-index: 10;
+            background-color: #ffd1dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            animation: pulse-border 2s infinite alternate;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 30px #ff1493, inset 0 0 20px #ff1493; }
+            100% { box-shadow: 0 0 60px #ff69b4, inset 0 0 30px #ff69b4; }
+        }
+
+        .center-images img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: crossfade 25s infinite;
+        }
+
+        .center-images img:nth-child(1) { animation-delay: 0s; }
+        .center-images img:nth-child(2) { animation-delay: 5s; }
+        .center-images img:nth-child(3) { animation-delay: 10s; }
+        .center-images img:nth-child(4) { animation-delay: 15s; }
+        .center-images img:nth-child(5) { animation-delay: 20s; }
+
+        @keyframes crossfade {
+            0% { opacity: 0; }
+            8% { opacity: 1; }
+            28% { opacity: 1; }
+            36% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .floating-word {
+            position: absolute;
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 5;
+            white-space: nowrap;
+        }
+
+        /* ===== MODAL / CARTA ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .carta {
+            background: linear-gradient(145deg, #fff0f5, #ffe4ec);
+            max-width: 600px;
+            max-height: 90vh;
+            width: 100%;
+            border-radius: 30px;
+            padding: 30px 25px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.6), 0 0 0 2px #ff69b4, 0 0 0 5px #ffb6c1;
+            position: relative;
+            overflow-y: auto;
+            font-family: 'Poppins', sans-serif;
+            color: #4a0e2b;
+            animation: slideUp 0.5s ease;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .carta::-webkit-scrollbar {
+            width: 8px;
+        }
+        .carta::-webkit-scrollbar-track {
+            background: #ffd9e6;
+            border-radius: 10px;
+        }
+        .carta::-webkit-scrollbar-thumb {
+            background: #ff69b4;
+            border-radius: 10px;
+        }
+
+        .carta h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            text-align: center;
+            color: #d63384;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+        }
+
+        .carta .mensaje {
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+            white-space: pre-wrap;
+            color: #3d1a2b;
+        }
+
+        .carta .mensaje .firma {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: #b34180;
+            margin-top: 15px;
+        }
+
+        .btn-cerrar {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 30px;
+            background: #ff69b4;
+            border: none;
+            border-radius: 40px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-cerrar:hover {
+            background: #d63384;
+            transform: scale(1.05);
+        }
+        .btn-cerrar:active {
+            transform: scale(0.95);
+        }
+
+        .carta::before {
+            content: "❤️";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px #ff1493);
+        }
+        .carta::after {
+            content: "❤️";
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px #ff1493);
+        }
+
+        @media (max-width: 600px) {
+            .center-images {
+                width: 150px;
+                height: 150px;
+            }
+            .title-text {
+                font-size: 1.8rem;
+                padding: 10px 20px;
+                top: 12%;
+                white-space: normal;
+            }
+            .floating-word {
+                font-size: 1.2rem;
+            }
+            .carta {
+                padding: 20px 15px;
+                max-width: 100%;
+            }
+            .carta h2 {
+                font-size: 1.8rem;
+            }
+            .carta .mensaje {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            .carta::before,
+            .carta::after {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-text" id="tituloAmor">Te Amo 🩷</div>
+
+    <div class="center-images">
+        <img src="https://imgs.search.brave.com/HDip8wTiyIZzkJl2zyZv96E9I7Q8rr98TNxWQCZbfVQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzM0L2E2/LzRiLzM0YTY0YjEy/YWQ5MjBjMmI4YWM2/MzlkNGJkNWY3OTZl/LmpwZw" alt="Spiderman y Hello Kitty 1">
+        <img src="https://imgs.search.brave.com/p23zUmvS546N79ywrf17-Pqqvl7CekhG9j8dkBD3_t8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hY2Ru/LXVzLm1pdGllbmRh/bnViZS5jb20vc3Rv/cmVzLzAwMS84MDAv/MjkwL3Byb2R1Y3Rz/LzIwNS04MWU0ZTQ2/MjZiYTRlNjY4MzYx/Njk2MjU4Mzg3MDY4/My00ODAtMC53ZWJw" alt="Spiderman y Hello Kitty 2">
+        <img src="https://cdn.imgbin.com/2/18/0/hello-kitty-spiderman-spider-man-and-hello-kitty-kiss-meqtaMUY.jpg" alt="Hello Kitty besando a Spiderman">
+    </div>
+
+    <canvas id="galaxy"></canvas>
+
+    <!-- MODAL CARTA (sin cambios) -->
+    <div class="modal-overlay" id="modalCarta">
+        <div class="carta">
+            <h2>Para mi Amor ❤️</h2>
+            <div class="mensaje">
+                Mi niña, quiero que sepas que te amo muchísimo, que gracias a tí he visto la vida de diferente manera, no sabes lo feliz que me haces cada día, si vieras como sonrió, cuando veo un mensaje tuyo o una foto tuya, como a través de mis ojos, toda la seguridad y confianza que me transmites, nunca pensé enamorarme, mucho menos creí en el amor a primera vista, pero tu me hicistes creer eso, y más. Se que has tenido altas y bajas, pero creeme, no solo me interesa estar en las buenas, me interesa más, estar en las malas, porque quiero ser ese hombre dónde puedes llorar, quiero ser ese lugar que te dé paz, tranquilidad, seguridad, confianza, sobre todo, que te dé amor cariño, quiero ser la persona que limpié tus lágrimas y te diga "todo estará bien" siempre que tengas un mal día o Un mal momento, ven ami, tal vez no resuelva tus problemas, pero hare que te olvides un ratito de ellos, quiero ser esa persona que te cobija, si estás en una tormenta, yo seré tu hogar, si estás enferma, quiero ser tu doctor, si tienes frío, quiero ser tu fuego, quieres escapar de este mundo y no saber de nadie, yo quiero ser tu escondite, si tienes que pelear yo seré tu espada, si quieres dormir, yo seré tu almohada, si estás en oscuridad, yo seré tu Luz, si caes, yo te daré la mano para levantarte, si te vas por otro camino, yo quiero ser quien te guie por el buen camino. No solo te quiero para un rato o unos años, te quiero para que estés en el momento de mi último latido quiero darte esos ánimos para seguir adelante, aunque hayas perdido todo, si tienes que empezar desde cero, lo haréjunto a tí, no importa lo que tengamos que pasar, no quiero soltar tu mano por qué entre 8 billones de personas, te encontré, y creí en alguien, nunca olvides lo mucho que me importas y lo orgulloso que estoy de ti, te amo preciosa.
+                <div class="firma">💞Gracias por estar en mi vida💞</div>
+            </div>
+            <button class="btn-cerrar" id="cerrarCarta">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // ===== CANVAS GALAXIA (sin cambios) =====
+        const canvas = document.getElementById('galaxy');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = 1200;
+
+        function getHeartPosition(t, scale) {
+            const x = 16 * Math.pow(Math.sin(t), 3);
+            const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+            return { x: x * scale, y: y * scale };
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            const t = Math.random() * Math.PI * 2;
+            particles.push({
+                t: t,
+                orbitRadius: Math.random() * (Math.random() < 0.2 ? 80 : 30) + 5,
+                orbitSpeed: (Math.random() * 0.03 + 0.01) * (Math.random() < 0.5 ? 1 : -1),
+                angle: Math.random() * Math.PI * 2,
+                size: Math.random() * 2 + 0.5,
+                color: `hsla(${300 + Math.random() * 50}, 100%, ${65 + Math.random() * 35}%, ${0.5 + Math.random() * 0.5})`
+            });
+        }
+
+        const stars = [];
+        for (let i = 0; i < 250; i++) {
+            stars.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: Math.random() * 1.5,
+                alpha: Math.random(),
+                alphaChange: (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+            });
+        }
+
+        function animateCanvas() {
+            ctx.fillStyle = 'rgba(5, 0, 10, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = 'lighter';
+
+            stars.forEach(star => {
+                star.alpha += star.alphaChange;
+                if (star.alpha <= 0 || star.alpha >= 1) star.alphaChange *= -1;
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, star.alpha)})`;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+            const heartScale = Math.min(canvas.width, canvas.height) / 40;
+
+            particles.forEach(p => {
+                p.angle += p.orbitSpeed;
+                p.t += 0.002;
+                if (p.t > Math.PI * 2) p.t = 0;
+
+                const basePos = getHeartPosition(p.t, heartScale);
+                const x = cx + basePos.x + Math.cos(p.angle) * p.orbitRadius;
+                const y = cy + basePos.y + Math.sin(p.angle) * p.orbitRadius;
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(x, y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            ctx.globalCompositeOperation = 'source-over';
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // ===== PALABRAS FLOTANTES (sin cambios) =====
+        const words = [
+            "Mi Princesa",
+            "Mi mayor suerte",
+            "Eres mi paz",
+            "Mi universo",
+            "Solo Tú y yo",
+            "Mi cielo",
+            "Mi amor eterno",
+            "Bombon de mi corazón",
+            "✨",
+            "❤️"
+        ];
+
+        function createFloatingWord() {
+            const word = document.createElement('div');
+            word.classList.add('floating-word');
+            word.innerText = words[Math.floor(Math.random() * words.length)];
+
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 100 + 200;
+
+            const startX = window.innerWidth / 2 + Math.cos(angle) * distance;
+            const startY = window.innerHeight / 2 + Math.sin(angle) * distance;
+
+            word.style.left = `calc(${startX}px - 40px)`;
+            word.style.top = `${startY}px`;
+
+            document.body.appendChild(word);
+
+            const duration = 4000 + Math.random() * 3000;
+            const floatDistance = -50 - Math.random() * 50;
+
+            const animation = word.animate([
+                { transform: 'translateY(0px)', opacity: 0 },
+                { opacity: 1, offset: 0.2 },
+                { opacity: 1, offset: 0.8 },
+                { transform: `translateY(${floatDistance}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'ease-out'
+            });
+
+            animation.onfinish = () => word.remove();
+        }
+
+        setInterval(createFloatingWord, 1500);
+        for (let i = 0; i < 4; i++) {
+            setTimeout(createFloatingWord, i * 400);
+        }
+
+        // ===== ABRIR / CERRAR CARTA (sin cambios) =====
+        const titulo = document.getElementById('tituloAmor');
+        const modal = document.getElementById('modalCarta');
+        const cerrarBtn = document.getElementById('cerrarCarta');
+
+        function abrirCarta() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarCarta() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        titulo.addEventListener('click', abrirCarta);
+        cerrarBtn.addEventListener('click', cerrarCarta);
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                cerrarCarta();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                cerrarCarta();
+            }
+        });
+    </script>
+</body>
+</html>

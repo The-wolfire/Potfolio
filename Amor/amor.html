@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiderman & Hello Kitty - Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* === ESTILOS GENERALES Y FONDO === */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #2e0018 0%, #000000 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
+        }
+
+        /* Luz romántica de fondo detrás del corazón */
+        .background-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: pulseBg 3s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+        }
+
+        /* === CONTENEDOR DEL CORAZÓN (LATIDO Y BRILLO) === */
+        .glow-wrapper {
+            z-index: 5;
+            /* Sombras para darle un brillo neón al corazón */
+            filter: drop-shadow(0 0 15px rgba(255, 50, 150, 0.6)) drop-shadow(0 0 40px rgba(255, 20, 100, 0.4));
+            /* Animación imitando el latido real de un corazón (doble pulso) */
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-container {
+            width: 350px;
+            height: 350px;
+            position: relative;
+            /* Máscara SVG que recorta el cuadrado para convertirlo en un corazón perfecto */
+            mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z' fill='black'/%3E%3C/svg%3E");
+            mask-size: contain;
+            mask-position: center;
+            mask-repeat: no-repeat;
+            -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z' fill='black'/%3E%3C/svg%3E");
+            -webkit-mask-size: contain;
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            background-color: #fff;
+        }
+
+        /* === LAS DOS MITADES DEL CORAZÓN (SPIDERMAN Y HELLO KITTY) === */
+        .half {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+        }
+
+        /* * IMPORTANTE: Si quieres usar tus propias fotos en lugar de las de prueba, 
+         * solo cambia la URL que está entre las comillas simples de abajo.
+         */
+        .spiderman {
+            left: 0;
+            background-color: #0b0f19;
+            /* Aquí pones tu imagen de Spiderman */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Spiderman_Marvel_Avengers.png/400px-Spiderman_Marvel_Avengers.png');
+            background-size: cover;
+            background-position: center right;
+        }
+
+        .hello-kitty {
+            right: 0;
+            background-color: #ffb6c1;
+            /* Aquí pones tu imagen de Hello Kitty */
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Hello_Kitty_character_portrait.png/400px-Hello_Kitty_character_portrait.png');
+            background-size: cover;
+            background-position: center left;
+        }
+
+        /* Línea central iluminada para dividir la foto (efecto de unión) */
+        .heart-container::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px #fff, 0 0 25px #ff1493;
+            z-index: 2;
+        }
+
+        /* === ANIMACIONES DE PALABRAS Y CORAZONES FLOTANTES === */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -100px; /* Empiezan desde abajo de la pantalla */
+            pointer-events: none;
+            font-family: 'Dancing Script', cursive;
+            white-space: nowrap;
+            /* Brillo para las letras */
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.5);
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translate(0, 0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                /* Sube flotando con un leve balanceo generado por la variable --drift */
+                transform: translate(var(--drift), -120vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        /* Diseño para celulares */
+        @media (max-width: 600px) {
+            .heart-container {
+                width: 280px;
+                height: 280px;
+            }
+            .particle {
+                font-size: smaller;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="glow-wrapper">
+        <div class="heart-container">
+            <div class="half spiderman"></div>
+            <div class="half hello-kitty"></div>
+        </div>
+    </div>
+
+    <div id="particles-container"></div>
+
+    <script>
+        // === CONFIGURACIÓN DE TEXTOS Y PALABRAS ===
+        // Aquí puedes escribir exactamente las frases que quieras que aparezcan flotando.
+        const words = [
+            "Te amo", 
+            "Mi amor", 
+            "Por siempre", 
+            "My Love", 
+            "Juntos", 
+            "Sos el amor de mi vida",
+            "No quiero una vida sin vos",
+            "Te necesito a mi lado",
+            "No quiero perderte nunca", 
+            "Eres mi todo",
+            "💖", 
+            "✨", 
+            "💕", 
+            "❤️"
+        ];
+        
+        const container = document.getElementById('particles-container');
+
+        function createParticle() {
+            const el = document.createElement('div');
+            el.classList.add('particle');
+            
+            // Decidimos al azar si mostramos una frase o solo un corazón
+            const isWord = Math.random() > 0.4; 
+            el.innerText = isWord ? words[Math.floor(Math.random() * words.length)] : "❤️";
+            
+            // Elegimos una posición en el ancho de la pantalla (evitando los bordes)
+            el.style.left = (Math.random() * 80 + 10) + "vw"; 
+            
+            // Velocidad aleatoria de flotación (entre 4 y 7 segundos)
+            const duration = Math.random() * 3 + 4;
+            el.style.animationDuration = duration + "s";
+            
+            // Estilos aleatorios
+            if (!isWord) {
+                // Si es un emoji, lo hacemos un poco más grande
+                el.style.fontSize = (Math.random() * 20 + 25) + "px";
+            } else {
+                // Si es texto, le damos un color romántico distinto
+                el.style.fontSize = (Math.random() * 15 + 25) + "px";
+                const colors = ["#ff69b4", "#ff1493", "#ff3366", "#ff99cc", "#ffffff"];
+                el.style.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            // Balanceo lateral ('drift') para que no suban recto, sino bailando un poco
+            const drift = (Math.random() * 200 - 100) + "px";
+            el.style.setProperty('--drift', drift);
+            
+            // Ponemos el elemento en la página
+            container.appendChild(el);
+            
+            // Lo borramos cuando termina de subir para que tu celular/PC no se ponga lento
+            setTimeout(() => {
+                el.remove();
+            }, duration * 1000);
+        }
+
+        // Programamos el Javascript para que dispare un nuevo corazón/palabra cada 600 milisegundos
+        setInterval(createParticle, 600);
+
+        // Disparamos unas cuantas partículas de inmediato al entrar a la página
+        for(let i=0; i<6; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+    </script>
+</body>
+</html>

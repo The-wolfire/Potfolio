@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <h1>Mi Espacio Personal</h1>
+    <p>
+        Bienvenido a mi rincón en la web. Esta página está diseñada para compartir 
+        información sobre mí, mis intereses y ofrecer un medio de contacto directo. 
+        Es un proyecto en crecimiento, así que pronto habrá más contenido.
+    </p>
+
+    <div class="enlaces-externos">
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+    </div>
+
+    <ul class="menu-navegacion">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div id="inicio" class="seccion">
+        <h2>Inicio</h2>
+        <p>
+        Aqui puedes encontrar productos o servicios donde te sentirás como en tu casa, con un ambiente agradable y acogedor. Nuestro objetivo es brindarte una experiencia única y personalizada, adaptada a tus necesidades y preferencias.
+        </p>
+    </div>
+
+    <div id="sobre-mi" class="seccion">
+        <h2>Sobre mí</h2>
+        Soy una persona apasionada por la tecnología y el arte de la programación. En esta sección encontrarás más detalles sobre mi vida, mis intereses y mis proyectos personales
+        <p>
+            Soy alguien quien desde que terminé mis estudios en informática. Me encanta aprender nuevas tecnologías y moder utilizarlas nuestros dia a dia.
+        </p>
+        <p>
+            Soy una persona creativa, siempre buscando nuevas formas de resolver problemas y mejorar mis habilidades.
+        </p>
+    </div>
+
+    <div id="contacto" class="seccion">
+        <h2>Contacto</h2>
+        <form action="#" method="post">
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
+
+            <fieldset>
+                <legend>¿Cómo me conociste?</legend>
+                <label>
+                    <input type="radio" name="origen" value="redes-sociales">
+                    Redes Sociales
+                </label>
+                <label>
+                    <input type="radio" name="origen" value="recomendacion">
+                    Recomendación
+                </label>
+                <label>
+                    <input type="radio" name="origen" value="otro">
+                    Otro
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Intereses:</legend>
+                <label>
+                    <input type="checkbox" name="intereses" value="tecnologia">
+                    Tecnología
+                </label>
+                <label>
+                    <input type="checkbox" name="intereses" value="arte">
+                    Arte
+                </label>
+                <label>
+                    <input type="checkbox" name="intereses" value="deportes">
+                    Deportes
+                </label>
+            </fieldset>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2026 Mi Página Personal. Todos los derechos reservados.
+        </p>
+    </footer>
+</body>
+</html>

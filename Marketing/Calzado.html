@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia de Marketing Digital - Aqua Flow</title>
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+        .slide {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            border-radius: 12px;
+            padding: 40px 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            box-sizing: border-box;
+            border-top: 4px solid var(--primary);
+        }
+        .header-title {
+            color: var(--primary);
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .slide-subtitle {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+        }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        .card { background-color: var(--bg-card); padding: 20px; border-radius: 8px; }
+        .img-container { width: 100%; height: 180px; background-color: #334155; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden; border: 1px dashed var(--primary); }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .img-placeholder-text { font-size: 12px; color: var(--primary); text-align: center; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: var(--bg-card); border-radius: 8px; overflow: hidden; }
+        th { background-color: var(--primary); color: #000; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #334155; font-size: 14px; }
+        ul { margin: 0; padding-left: 20px; color: var(--text-muted); }
+        li { margin-bottom: 10px; }
+        .highlight { color: var(--primary); font-weight: bold; font-size: 40px; margin: 0; }
+        .buyer-header { background: #1e293b; padding: 15px; border-left: 4px solid var(--primary); margin-bottom: 20px; }
+        .links a { color: var(--primary); text-decoration: none; }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="slide" style="text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 400px;">
+        <div style="margin-bottom: 30px;">
+            <img src="calzado.png" alt="Logo Aqua Flow" style="max-height: 300px;">
+        </div>
+        <h1 style="font-size: 48px; margin-bottom: 10px;">ESTRATEGIA DE MARKETING DIGITAL</h1>
+        <h2 style="color: var(--primary); font-size: 30px;">AQUA FLOW</h2>
+        <p style="color: var(--text-muted); font-size: 18px;">Innovación en calzado hermético deportivo y de rehabilitación</p>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Análisis y Punto de partida;</div>
+        <div class="slide-subtitle">¿Qué ofreces?</div>
+        
+        <div class="grid-3">
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/1032117/pexels-photo-1032117.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aqua Flow PRO - Zapatilla en agua">
+                </div>
+                <h3 style="color: var(--primary);">Aqua Flow PRO</h3>
+                <p><strong>Descripción del producto:</strong> Zapatilla de máxima tecnología hidrofóbica con sellado hermético. Diseñada para triatletas que transicionan del Río Paraná al running sin retener agua, manteniendo el pie seco y ligero.</p>
+            </div>
+            
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/8436691/pexels-photo-8436691.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aqua Flow FITNESS - Zapatillas en piscina">
+                </div>
+                <h3 style="color: var(--primary);">Aqua Flow REHAB</h3>
+                <p><strong>Descripción del producto:</strong> Modelo ortopédico con apertura ampliada y soporte plantar. Ideal para hidroterapia y rehabilitación traumatológica. Evita que la piel herida o sensible entre en contacto con el agua clorada.</p>
+            </div>
+            
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aqua Flow REHAB - Entorno terapéutico">
+                </div>
+                <h3 style="color: var(--primary);">Aqua Flow FITNESS</h3>
+                <p><strong>Descripción del producto:</strong> Zapatilla ligera y colorida con suela de micro-ventosas para clases de aqua-gym, previniendo resbalones y contagio de hongos en el piso de las piletas de natación.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Estrategia y Plan de Acción</div>
+        <div class="slide-subtitle">¿Qué planeamos hacer a futuro?</div>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3 style="color: var(--primary);">PÁGINA WEB</h3>
+                <p><strong>Plan de acción:</strong> Desarrollo y lanzamiento de una Landing Page de preventa exclusiva con formulario de captura de correos e integración de pasarela de pago.</p>
+                <p><strong>Resultados esperados:</strong> Captar el interés inicial logrando al menos 450 visitas orgánicas y 85 registros completados (Leads) en el primer mes de lanzamiento.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary);">REDES SOCIALES</h3>
+                <p><strong>Plan de acción:</strong> Creación de perfiles oficiales desde cero. Producción y publicación de Teasers demostrativos en Instagram Reels, mostrando en video que el pie se mantiene seco tras sumergirlo.</p>
+                <p><strong>Resultados esperados:</strong> Construir una comunidad inicial llegando a los primeros 1,200 seguidores y generar alta interacción (guardados y compartidos) mediante contenido de valor.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary);">EMAIL MARKETING</h3>
+                <p><strong>Plan de acción:</strong> Diseño de una campaña de contacto en frío enviando un boletín técnico con especificaciones de materiales al Colegio de Kinesiólogos de Misiones.</p>
+                <p><strong>Resultados esperados:</strong> Lograr una tasa de apertura del 38% y concretar las primeras 10 a 15 respuestas solicitando reuniones comerciales B2B.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary);">CAMPAÑAS ONLINE</h3>
+                <p><strong>Plan de acción:</strong> Activación de pauta publicitaria segmentada (Facebook & Instagram Ads) dirigida específicamente a entusiastas del deporte, triatletas y clínicas de rehabilitación en la región del NEA.</p>
+                <p><strong>Resultados esperados:</strong> Optimizar la pauta para lograr un Costo Por Clic (CPC) cercano a $0.15 USD y un Retorno de Inversión (ROAS) positivo durante la preventa.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Proyecciones y Expectativas</div>
+        <div class="slide-subtitle">¿Qué recepción esperamos del mercado?</div>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3 style="color: var(--primary); margin-top: 0;">SENTIMIENTO PROYECTADO</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>Positivos (70%+):</strong> Se espera que valoren altamente la innovación y el diseño hermético como solución a un problema real en el agua.</li>
+                    <li><strong>Neutros (15%):</strong> Público conservador que esperará a ver reseñas, testimonios o pruebas empíricas de otros usuarios antes de comprar.</li>
+                    <li><strong>Objeciones esperadas:</strong> Consultas frecuentes sobre costos de envío, disponibilidad de talles y justificación del precio frente a calzado tradicional.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary); margin-top: 0;">ENFOQUE POR PLATAFORMA (ESTRATEGIA)</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>Facebook:</strong> Orientado al público de Aqua-Gym (+50 años) buscando seguridad y prevención.</li>
+                    <li><strong>Instagram:</strong> Enfoque principal (60% del esfuerzo) para el público Triatleta y Fitness (+25 años) priorizando la estética y el rendimiento.</li>
+                    <li><strong>LinkedIn / Mailing:</strong> Dedicado exclusivamente a captar contactos B2B de clínicas, kinesiólogos y profesionales de la salud.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Análisis y Punto de partida</div>
+        <div class="slide-subtitle">¿Qué hace la competencia?</div>
+        
+        <table>
+            <tr>
+                <th>Canal</th>
+                <th>WaterShoes Arg (Escarpines Neopreno)</th>
+                <th>TrailGoretex X (Zapatillas Impermeables)</th>
+                <th>AquaFit Pro (Medias de Agua)</th>
+            </tr>
+            <tr><td>Web</td><td>Sí (E-commerce básico)</td><td>Sí (Tienda oficial multinacional)</td><td>Sí (Landing page de producto)</td></tr>
+            <tr><td>Blog</td><td>No</td><td>Sí (Artículos sobre trail running)</td><td>No</td></tr>
+            <tr><td>Facebook</td><td>Sí (Actualizaciones semanales)</td><td>Sí (Comunidad muy activa)</td><td>Sí (Poca interacción)</td></tr>
+            <tr><td>Instagram</td><td>Sí (Fotos de producto estáticas)</td><td>Sí (Reels de alta producción)</td><td>No tienen perfil activo</td></tr>
+            <tr><td>Twitter</td><td>Sí (Atención al cliente)</td><td>Sí (Noticias de la marca)</td><td>No</td></tr>
+            <tr><td>Mailing</td><td>Sí (Promociones mensuales)</td><td>Sí (Newsletters automáticos)</td><td>No realizan campañas</td></tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Lo más importante Objetivos</div>
+        <div class="slide-subtitle">¿Cuál es la necesidad?</div>
+        
+        <div class="grid-3">
+            <div class="card" style="text-align: center;">
+                <p class="highlight">+50%</p>
+                <h3>Leads B2B</h3>
+                <p style="color: var(--text-muted);">Captar datos de contacto de 150 kinesiólogos, traumatólogos y dueños de clubes en Misiones antes del mes 6.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <p class="highlight">+20%</p>
+                <h3>Preventa</h3>
+                <p style="color: var(--text-muted);">Lograr la meta de 500 pares vendidos en la fase de preventa exclusiva para asegurar el retorno de la primera inversión en matricería.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <p class="highlight">+15 %</p>
+                <h3>Tráfico Educativo</h3>
+                <p style="color: var(--text-muted);">Aumentar visitas al blog en un 15% mensual educando al mercado sobre las diferencias vitales entre un calzado hermético y uno impermeable.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">&lt;Enfoque/&gt; Buyer Persona</div>
+        <div class="slide-subtitle">¿Cuál es nuestro público objetivo?</div>
+        
+        <div class="buyer-header">
+            <h3 style="margin: 0; color: var(--primary);">BUYER PERSONA 1: El Atleta Rendimiento</h3>
+            <p style="margin: 5px 0 0 0;"><strong>Nombre:</strong> Martín | <strong>Edad:</strong> 34 | <strong>Estado civil:</strong> Soltero | <strong>Educación:</strong> Universitaria | <strong>Condición laboral:</strong> Arquitecto Independiente | <strong>Ingresos anuales:</strong> USD 15,000</p>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Conducta online:</strong> Activo en Instagram y Strava. Sigue canales de YouTube de reviews de material deportivo.</p>
+                <p><strong>Conducta laboral:</strong> Muy estructurado. Optimiza su tiempo libre al máximo para poder entrenar y competir.</p>
+                <p><strong>Relación con nuestra compañía:</strong> Es un prospecto frío que necesita validación técnica y pruebas empíricas del calzado.</p>
+            </div>
+            <div>
+                <p><strong>¿Qué intereses tiene?</strong> Triatlón, nado en aguas abiertas (Río Paraná), bio-hacking y suplementación deportiva.</p>
+                <p><strong>¿Qué desea o a qué aspira?</strong> Entrenar cardio intenso combinando agua y tierra sin tener que cambiar de zapatillas ni sufrir rozaduras pesadas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Enfoque Buyer Persona</div>
+        <div class="slide-subtitle">¿Cuál es nuestro público objetivo?</div>
+        
+        <div class="buyer-header">
+            <h3 style="margin: 0; color: var(--primary);">BUYER PERSONA 2: El Profesional de la Salud (B2B)</h3>
+            <p style="margin: 5px 0 0 0;"><strong>Nombre:</strong> Dr. Roberto | <strong>Edad:</strong> 52 | <strong>Estado civil:</strong> Casado | <strong>Educación:</strong> Médico Especialista | <strong>Condición laboral:</strong> Director de Clínica Traumatológica | <strong>Ingresos anuales:</strong> USD 35,000</p>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Conducta online:</strong> Usa LinkedIn para networking profesional, lee revistas científicas y portales de gestión médica.</p>
+                <p><strong>Conducta laboral:</strong> Busca constantemente innovar en tratamientos para atraer pacientes premium a su clínica.</p>
+                <p><strong>Relación con nuestra compañía:</strong> Posible aliado estratégico que puede recetar nuestro calzado a cambio de beneficios comerciales o comisiones.</p>
+            </div>
+            <div>
+                <p><strong>¿Qué intereses tiene?</strong> Nuevas tecnologías de recuperación, rehabilitación acelerada, prestigio médico frente a colegas.</p>
+                <p><strong>¿Qué desea o a qué aspira?</strong> Brindar el mejor servicio de hidroterapia del NEA sin que sus pacientes abandonen el tratamiento por incomodidad.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Enfoque Buyer Persona</div>
+        <div class="slide-subtitle">¿Cuál es nuestro público objetivo?</div>
+        
+        <div class="buyer-header">
+            <h3 style="margin: 0; color: var(--primary);">BUYER PERSONA 3: La Usuaria Preventiva</h3>
+            <p style="margin: 5px 0 0 0;"><strong>Nombre:</strong> Silvia | <strong>Edad:</strong> 55 | <strong>Estado civil:</strong> Divorciada | <strong>Educación:</strong> Terciaria | <strong>Condición laboral:</strong> Docente de secundaria | <strong>Ingresos anuales:</strong> USD 8,000</p>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <p><strong>Conducta online:</strong> Muy activa en Facebook y grupos de WhatsApp vecinales/escolares. Lee portales de noticias locales.</p>
+                <p><strong>Conducta laboral:</strong> Trabaja de pie muchas horas, sufre de dolores lumbares y articulares constantes.</p>
+                <p><strong>Relación con nuestra compañía:</strong> Descubrirá la marca por un anuncio en Facebook o recomendación boca a boca en su club.</p>
+            </div>
+            <div>
+                <p><strong>¿Qué intereses tiene?</strong> Bienestar físico, clases de aqua-gym social, evitar lesiones y pasar tiempo con amigas.</p>
+                <p><strong>¿Qué desea o a qué aspira?</strong> Hacer ejercicio sin dolor en el agua, de forma segura (sin resbalar) y viéndose estéticamente bien.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Plan de Contenidos</div>
+        <div class="slide-subtitle">Buyer Persona 1: Martín (El Atleta Rendimiento)</div>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>Problema:</strong> Los escarpines de neopreno absorben agua, se vuelven muy pesados y sobrecargan sus rodillas al correr.<br>
+            <strong>Frase que le define:</strong> "Necesito entrenar transiciones en el agua, pero el calzado convencional se llena de líquido y pesa una tonelada."
+        </div>
+
+        <table>
+            <tr>
+                <th>Etapa de Necesidad (Descubrimiento)</th>
+                <th>Etapa de Consideración (Evaluación)</th>
+                <th>Etapa de Decisión (Compra)</th>
+            </tr>
+            <tr>
+                <td>Blog Post: "Cómo la retención de agua en tu calzado destruye tu ritmo de carrera en triatlón."</td>
+                <td>Video YouTube: "Aqua Flow vs Escarpines de Neopreno: Prueba de peso en balanza tras sumersión."</td>
+                <td>Anuncio publicitario (Instagram): "Mejora tu tiempo de transición. 15% OFF en Aqua Flow PRO hoy."</td>
+            </tr>
+            <tr>
+                <td>Presentación en Instagram: "El impacto articular real de correr con un kilo extra en cada pie."</td>
+                <td>Entrevista en Podcast a nadador local reconocido usando Aqua Flow en el Río Paraná.</td>
+                <td>Email de Urgencia: "Quedan solo 20 pares en tu talle para la preventa exclusiva de este mes."</td>
+            </tr>
+            <tr>
+                <td>Reels (Mitos): "3 Mitos sobre correr en la arena húmeda con zapatillas impermeables."</td>
+                <td>Página Web interactiva mostrando la tecnología de la válvula de vacío y sellado del tobillo.</td>
+                <td>Prueba Social en Web: Carrusel de fotos de usuarios reales sacando su pie totalmente seco.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Plan de Contenidos</div>
+        <div class="slide-subtitle">Buyer Persona 2: Dr. Roberto (El Profesional)</div>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>Problema:</strong> Alto índice de pacientes que abandonan la hidroterapia en invierno por frío o miedo a contagio de hongos.<br>
+            <strong>Frase que le define:</strong> "Mis pacientes evitan la rehabilitación acuática porque odian la sensación de frío y el piso resbaladizo."
+        </div>
+
+        <table>
+            <tr>
+                <th>Etapa de Necesidad (Descubrimiento)</th>
+                <th>Etapa de Consideración (Evaluación)</th>
+                <th>Etapa de Decisión (Compra/Alianza)</th>
+            </tr>
+            <tr>
+                <td>Artículo en LinkedIn: "El 40% de los pacientes abandona la hidroterapia en invierno. ¿Cómo evitarlo?"</td>
+                <td>Brochure Digital Médico descargable: "Especificaciones Clínicas del modelo Aqua Flow REHAB."</td>
+                <td>Envío de Propuesta formal de Convenio Comercial B2B por correo electrónico corporativo.</td>
+            </tr>
+            <tr>
+                <td>Webinar gratuito: "Nuevos materiales de aislamiento térmico aplicados a la kinesiología moderna."</td>
+                <td>Casos de Estudio PDF: "Clínica X aumentó su retención de pacientes un 30% implementando calzado hermético."</td>
+                <td>Agendamiento de reunión presencial en la clínica para llevar pares de prueba físicos.</td>
+            </tr>
+            <tr>
+                <td>Publicación en Facebook para clínicas: "Salud preventiva: El riesgo de heridas abiertas en piletas públicas."</td>
+                <td>Testimonios en video cortos de otros traumatólogos avalando la anatomía de la suela de Aqua Flow.</td>
+                <td>Envío de una muestra gratuita al talle del Dr. Roberto a su consultorio personal.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Plan de Contenidos</div>
+        <div class="slide-subtitle">Buyer Persona 3: Silvia (La Usuaria Preventiva)</div>
+        
+        <div style="margin-bottom: 15px;">
+            <strong>Problema:</strong> Siente inseguridad al caminar en la pileta porque resbala con medias comunes y se enferma por el frío.<br>
+            <strong>Frase que le define:</strong> "Quiero hacer aqua-gym para mis rodillas, pero resbalo constantemente y el frío en los pies me enferma."
+        </div>
+
+        <table>
+            <tr>
+                <th>Etapa de Necesidad (Descubrimiento)</th>
+                <th>Etapa de Consideración (Evaluación)</th>
+                <th>Etapa de Decisión (Compra)</th>
+            </tr>
+            <tr>
+                <td>Post en Facebook: "Dile adiós al miedo a caerte en la pileta y a los molestos hongos."</td>
+                <td>Video Testimonial Emocional: Mujeres de +50 años contando cómo volvieron a disfrutar del agua.</td>
+                <td>Promoción Especial: "Promo Amigas 2x1. Lleva a tu compañera de aqua-gym y ahorren juntas."</td>
+            </tr>
+            <tr>
+                <td>Artículo de Blog: "5 Ejercicios de bajo impacto en el agua ideales para mujeres con dolor lumbar."</td>
+                <td>Guía Visual: "Cómo funcionan las micro-ventosas de Aqua Flow FITNESS para pegarse a la cerámica."</td>
+                <td>Cierre de ventas asistido por WhatsApp directo (atención personalizada 1 a 1).</td>
+            </tr>
+            <tr>
+                <td>Instagram Reel Musicalizado: Rutina básica de Aqua-Gym mostrando la flexibilidad del calzado.</td>
+                <td>Cuadro Comparativo Simple (Imagen): Medias de látex vs Zapatillas Aqua Flow reforzadas.</td>
+                <td>Envío de Link de Pago de MercadoPago destacando "3 Cuotas Sin Interés".</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Palabras Claves a Posicionar</div>
+        <div class="slide-subtitle">¿Qué palabras clave (soluciones) vamos a atacar?</div>
+
+        <table>
+            <tr>
+                <th>Relacionadas con soluciones</th>
+                <th>Búsquedas mensuales (Aprox)</th>
+                <th>Dificultad SEO</th>
+            </tr>
+            <tr><td>Cómo correr sin impacto articular</td><td>2,400</td><td>Media</td></tr>
+            <tr><td>Ejercicios de rehabilitación en agua para rodilla</td><td>3,150</td><td>Baja</td></tr>
+            <tr><td>Cómo evitar hongos en piscinas públicas</td><td>1,800</td><td>Baja</td></tr>
+            <tr><td>Alternativas a correr en asfalto</td><td>1,200</td><td>Alta</td></tr>
+            <tr><td>Beneficios del Aqua-running o correr en agua</td><td>2,900</td><td>Media</td></tr>
+            <tr><td>Zapatillas para no resbalar en pileta</td><td>1,500</td><td>Baja</td></tr>
+            <tr><td>Tratamiento hidroterapia post operatorio</td><td>800</td><td>Alta</td></tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Palabras Claves a Posicionar</div>
+        <div class="slide-subtitle">Palabras clave directas de tu servicio/producto</div>
+
+        <table>
+            <tr>
+                <th>Relacionadas con mi producto directo</th>
+                <th>Búsquedas mensuales (Aprox)</th>
+                <th>Dificultad SEO</th>
+            </tr>
+            <tr><td>Zapatillas acuáticas herméticas</td><td>500 (Nicho específico)</td><td>Baja</td></tr>
+            <tr><td>Zapatillas para correr bajo el agua</td><td>1,400</td><td>Media</td></tr>
+            <tr><td>Escarpines impermeables para natación</td><td>3,200</td><td>Alta</td></tr>
+            <tr><td>Calzado para aqua fitness mujer</td><td>4,500</td><td>Alta</td></tr>
+            <tr><td>Zapatillas de agua antideslizantes ortopédicas</td><td>1,100</td><td>Media</td></tr>
+            <tr><td>Comprar calzado para hidroterapia Argentina</td><td>600</td><td>Baja</td></tr>
+            <tr><td>Aqua Flow precios y talles</td><td>300 (Búsqueda de Marca)</td><td>Muy Baja</td></tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Determinación de Canales Sociales</div>
+        <div class="slide-subtitle">Selección de canales sociales a utilizar</div>
+
+        <table>
+            <tr>
+                <th>Canal Social</th>
+                <th>Objetivo: Generar Tráfico</th>
+                <th>Objetivo: Captar Contactos (Leads)</th>
+                <th>Objetivo: Cerrar Ventas</th>
+            </tr>
+            <tr><td>Facebook (Ads y FanPage)</td><td>Sí</td><td>Sí (Formularios nativos)</td><td>Sí (Derivando a WhatsApp)</td></tr>
+            <tr><td>Instagram (Reels / Stories)</td><td>Sí</td><td>Sí (Link en Bio)</td><td>Sí (Instagram Shopping)</td></tr>
+            <tr><td>Twitter / X</td><td>No</td><td>No</td><td>No (Se descarta por falta de nicho)</td></tr>
+            <tr><td>YouTube (Videos Largos)</td><td>Sí (SEO)</td><td>No</td><td>Sí (Ventas indirectas educadas)</td></tr>
+            <tr><td>LinkedIn (Perfil Empresa)</td><td>No</td><td>Sí (Contactar médicos)</td><td>Sí (Ventas mayoristas B2B)</td></tr>
+            <tr><td>TikTok</td><td>Sí (Viralidad)</td><td>No</td><td>No</td></tr>
+            <tr><td>WhatsApp Business</td><td>No (Es privado)</td><td>Sí (Base de datos)</td><td>Sí (Conversión directa principal)</td></tr>
+            <tr><td>Google Mi Negocio (SEO Local)</td><td>Sí</td><td>Sí (Llamadas)</td><td>Sí (Visitas físicas)</td></tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">KPIs y Objetivos</div>
+        <div class="slide-subtitle">Metas proyectadas para el primer semestre de lanzamiento</div>
+
+        <table>
+            <tr>
+                <th>Métrica de Rendimiento</th>
+                <th>Mes 1</th>
+                <th>Mes 2</th>
+                <th>Mes 3</th>
+                <th>Mes 4</th>
+                <th>Mes 5</th>
+                <th>Mes 6</th>
+                <th>Objetivo Semestral Final</th>
+            </tr>
+            <tr>
+                <td>Tráfico Web (Visitas)</td>
+                <td>+5%</td><td>+10%</td><td>+10%</td><td>+15%</td><td>+20%</td><td>+10%</td><td>Alcanzar 5,000 visitas/mes</td>
+            </tr>
+            <tr>
+                <td>Contactos B2B (Leads Médicos)</td>
+                <td>10</td><td>25</td><td>40</td><td>50</td><td>65</td><td>80</td><td>Captar 270 Leads Calificados</td>
+            </tr>
+            <tr>
+                <td>Seguidores en Instagram</td>
+                <td>+5%</td><td>+10%</td><td>+10%</td><td>+15%</td><td>+20%</td><td>+10%</td><td>Superar los 5,000 seguidores</td>
+            </tr>
+            <tr>
+                <td>Ventas (Pares de Zapatillas)</td>
+                <td>20 pares</td><td>45 pares</td><td>80 pares</td><td>100 pares</td><td>125 pares</td><td>130 pares</td><td>Lograr 500 pares vendidos totales</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="slide">
+        <div class="header-title">Determinación de Contingencia(3312)</div>
+        <div class="slide-subtitle">Plan de acción de emergencia ante desviación de objetivos</div>
+
+        <table>
+            <tr>
+                <th>Área Crítica</th>
+                <th>Plan si los objetivos están al -25%</th>
+                <th>Plan si los objetivos están al -50%</th>
+                <th>Plan de Emergencia (Objetivos al -75%)</th>
+            </tr>
+            <tr>
+                <td>Caída de Tráfico Web</td>
+                <td>Optimizar palabras clave SEO de bajo rendimiento e inyectar un 15% extra de presupuesto en Google Ads por 7 días.</td>
+                <td>Lanzar campaña colaborativa con 3 influencers locales (nadadores/kinesiólogos) para que lleven tráfico mediante un código de descuento.</td>
+                <td>Pausar todas las pautas pagas, realizar auditoría web profunda de UX/UI y organizar un evento físico en la Costanera para generar ruido.</td>
+            </tr>
+            <tr>
+                <td>Falta de Contactos (Leads)</td>
+                <td>Instalar un Pop-up de "Exit-Intent" en la web ofreciendo 10% de descuento a cambio de dejar el email antes de salir.</td>
+                <td>Lanzar inmediatamente un Lead Magnet gratuito (E-book: "Guía de entrenamiento seguro en agua") mediante Facebook Ads.</td>
+                <td>Designar a un promotor para realizar visitas presenciales "a puerta fría" en 20 clínicas traumatológicas de Posadas y Garupá.</td>
+            </tr>
+            <tr>
+                <td>Bajas Ventas</td>
+                <td>Lanzar promoción relámpago de "Envío Gratis a todo el país" durante 48 horas exclusivas.</td>
+                <td>Activar agresivamente el sistema de afiliados: Ofrecer 15% de comisión real a profesores de club y médicos por cada par que hagan vender.</td>
+                <td>Revisar matriz de precios urgentemente, crear un paquete Bundle (Zapatillas + Toalla de microfibra de regalo) y lanzar remarketing masivo.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

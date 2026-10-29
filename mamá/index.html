@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Te amo, Mamá 💐</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    min-height:100vh;
+    font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    color:#5a2a3d;
+    background:linear-gradient(-45deg,#ffe3ef,#ffd0e3,#f6c9e6,#ffe9f3,#f3d7ff);
+    background-size:400% 400%;
+    animation:bg 20s ease infinite;
+    overflow-x:hidden;
+  }
+  body.locked{overflow:hidden}
+  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+  /* ---------- Corazones flotantes ---------- */
+  #hearts{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .heart{
+    position:fixed;bottom:-60px;
+    animation:floatUp linear forwards;
+    will-change:transform;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg);opacity:0}
+    12%{opacity:1}
+    100%{transform:translateY(-115vh) rotate(340deg);opacity:0}
+  }
+
+  /* ---------- Portada ---------- */
+  #cover{
+    position:fixed;inset:0;z-index:50;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:14px;padding:24px;text-align:center;
+    background:radial-gradient(circle at 50% 30%, rgba(255,255,255,.75), rgba(255,214,232,.85) 70%);
+    transition:opacity .9s ease, visibility .9s;
+  }
+  #cover.gone{opacity:0;visibility:hidden}
+  .gift{font-size:80px;animation:bob 2.4s ease-in-out infinite;
+        filter:drop-shadow(0 12px 18px rgba(200,60,120,.35))}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-18px) rotate(5deg)}}
+  #cover h1{font-family:'Dancing Script',cursive;font-size:clamp(2.4rem,8vw,4rem);color:#c2185b;line-height:1.1}
+  #cover p{font-size:1.1rem;font-style:italic;color:#a3547a;max-width:420px}
+  .hint{font-size:.9rem;color:#c07a9c;margin-top:6px}
+
+  button{
+    font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;
+    padding:14px 34px;border:none;border-radius:50px;cursor:pointer;
+    background:linear-gradient(135deg,#ff7eb3,#ff4f8b);color:#fff;
+    box-shadow:0 10px 25px rgba(255,79,139,.45);
+    transition:transform .25s, box-shadow .25s;
+  }
+  button:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 32px rgba(255,79,139,.55)}
+  button:active{transform:scale(.97)}
+
+  /* ---------- Tarjeta ---------- */
+  #card{
+    position:relative;z-index:10;
+    max-width:720px;margin:48px auto;padding:38px 28px 46px;
+    border-radius:32px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 30px 70px rgba(190,60,120,.22), inset 0 1px 0 rgba(255,255,255,.9);
+    opacity:0;transform:translateY(40px) scale(.97);visibility:hidden;
+    transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.3,1), visibility 1s;
+  }
+  #card.show{opacity:1;transform:none;visibility:visible}
+
+  /* ---------- Flor ---------- */
+  .flower{position:relative;width:220px;height:250px;margin:0 auto 6px}
+  .stem{
+    position:absolute;left:50%;top:85px;width:8px;height:150px;margin-left:-4px;
+    background:linear-gradient(#8fd694,#3f8f4a);border-radius:8px;
+    transform-origin:top center;transform:scaleY(0);
+    animation:grow .9s .4s cubic-bezier(.3,1.2,.5,1) forwards;
+  }
+  @keyframes grow{to{transform:scaleY(1)}}
+  .leaf{
+    position:absolute;top:128px;width:62px;height:34px;
+    background:linear-gradient(#7fce87,#3f8f4a);border-radius:0 100% 0 100%;
+    transform:scale(0);animation:bloom .6s 1.05s cubic-bezier(.2,1.5,.5,1) forwards;
+  }
+  .leaf-l{left:calc(50% - 64px);transform-origin:right center}
+  .leaf-r{right:calc(50% - 64px);border-radius:100% 0 100% 0;transform-origin:left center}
+  .blossom{position:absolute;left:50%;top:85px;width:0;height:0}
+  .petal-wrap{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(var(--a))}
+  .petal{
+    position:absolute;left:-26px;top:-78px;width:52px;height:78px;
+    background:radial-gradient(circle at 50% 25%,#ffc2da,#ff5f9e 75%);
+    border-radius:50% 50% 45% 45% / 65% 65% 35% 35%;
+    transform-origin:50% 100%;transform:scale(0);
+    animation:bloom .9s cubic-bezier(.2,1.6,.5,1) forwards;
+    animation-delay:var(--d);
+  }
+  .petal.inner{
+    left:-19px;top:-58px;width:38px;height:58px;
+    background:radial-gradient(circle at 50% 25%,#ffe3ef,#ff8ab8 75%);
+  }
+  @keyframes bloom{to{transform:scale(1)}}
+  .flower-center{
+    position:absolute;left:-18px;top:-18px;width:36px;height:36px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,#ffe98a,#f2a51a);
+    box-shadow:0 0 20px rgba(242,165,26,.85);
+    transform:scale(0);animation:bloom .6s .8s cubic-bezier(.2,1.6,.5,1) forwards;
+  }
+
+  /* ---------- Textos ---------- */
+  #card h2{
+    font-family:'Dancing Script',cursive;font-size:clamp(2rem,6.5vw,3.1rem);
+    color:#c2185b;text-align:center;line-height:1.15;
+  }
+  .sub{text-align:center;font-style:italic;color:#a3547a;font-size:1.05rem;margin:6px 0 22px}
+  .poem{font-size:1.16rem;line-height:1.85;text-align:center;min-height:2em}
+  .poem p{min-height:1.2em}
+  .poem .gap{height:1.1rem}
+  .caret{
+    display:inline-block;width:2px;height:1.05em;margin-left:2px;
+    background:#ff4f8b;vertical-align:-3px;
+    animation:blink .8s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+
+  #skipBtn{
+    display:block;margin:22px auto 0;padding:8px 20px;font-size:.95rem;
+    background:rgba(255,255,255,.7);color:#c2185b;
+    box-shadow:0 6px 16px rgba(194,24,91,.18);border:1px solid rgba(194,24,91,.2);
+  }
+  #skipBtn:hover{background:#fff}
+
+  .love{
+    margin-top:30px;padding-top:26px;
+    border-top:1px dashed rgba(194,24,91,.28);
+    opacity:0;transform:translateY(22px);
+    transition:opacity 1.2s ease, transform 1.2s ease;
+  }
+  .love.show{opacity:1;transform:none}
+  .love p{font-size:1.1rem;line-height:1.8;text-align:center;margin-bottom:14px}
+  .sign{
+    font-family:'Dancing Script',cursive;font-size:1.75rem;color:#c2185b;
+    text-align:center;margin-top:16px;
+  }
+  #finalBtn{display:block;margin:26px auto 0}
+  #finalMsg{
+    text-align:center;font-family:'Dancing Script',cursive;font-size:1.6rem;
+    color:#c2185b;margin-top:16px;opacity:0;transition:opacity .8s;
+  }
+  #finalMsg.show{opacity:1}
+
+  /* ---------- Explosión de corazones ---------- */
+  .burst{
+    position:fixed;pointer-events:none;z-index:999;
+    animation:burst 1.3s ease-out forwards;
+    transform:translate(-50%,-50%);
+  }
+  @keyframes burst{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}
+    100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.2) rotate(180deg)}
+  }
+</style>
+</head>
+<body class="locked">
+
+<div id="hearts"></div>
+
+<!-- ============ PORTADA ============ -->
+<div id="cover">
+  <div class="gift">🎁</div>
+  <h1>Para ti, Mamá</h1>
+  <p>Un pequeño regalo hecho con código,<br>pero sobre todo… hecho con amor.</p>
+  <button id="openBtn">Abrir mi regalo 💝</button>
+  <p class="hint">(sube el volumen 🔊)</p>
+</div>
+
+<!-- ============ TARJETA ============ -->
+<main id="card">
+  <div class="flower" id="flower">
+    <div class="stem"></div>
+    <div class="leaf leaf-l"></div>
+    <div class="leaf leaf-r"></div>
+    <div class="blossom" id="blossom">
+      <div class="flower-center"></div>
+    </div>
+  </div>
+
+  <h2>Feliz Día de la Madre</h2>
+  <p class="sub">Para la mujer que me dio la vida y la llenó de luz</p>
+
+  <div class="poem" id="poem"></div>
+  <button id="skipBtn">Mostrar todo el poema ⏩</button>
+
+  <section class="love" id="love">
+    <p>Mamá, si el amor tuviera forma, tendría tu cara y tu voz.
+       Gracias por enseñarme que la fuerza también sabe ser ternura,
+       y que un abrazo tuyo puede arreglar casi cualquier cosa.</p>
+
+    <p>Hoy te celebro no solo por ser mi madre, sino por ser la mujer
+       valiente que admiro. Todo lo bueno que hay en mí empezó en tus manos,
+       en tus desvelos y en tu manera de darlo todo sin hacer ruido.</p>
+
+    <p>No alcanzaría una vida entera para devolverte tanto,
+       pero sí para agradecerte cada día. Te amo, hoy y siempre. 💐</p>
+
+    <p class="sign">Con todo mi amor,<br>tu hijo/a 💗</p>
+
+    <button id="finalBtn">Un último abrazo 🤗</button>
+    <p id="finalMsg">¡Feliz Día de la Madre! 🌷<br>Gracias por existir.</p>
+  </section>
+</main>
+
+<script>
+/* ========== UTILIDADES ========== */
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+/* ========== CORAZONES FLOTANTES ========== */
+const heartsLayer = document.getElementById('hearts');
+const EMOJIS = ['💗','💖','🌸','💕','🌷','✨','💞'];
+
+function spawnHeart(){
+  const h = document.createElement('span');
+  h.className = 'heart';
+  h.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.fontSize = (10 + Math.random() * 18) + 'px';
+  h.style.animationDuration = (8 + Math.random() * 7) + 's';
+  h.style.opacity = 0.35 + Math.random() * 0.45;
+  heartsLayer.appendChild(h);
+  setTimeout(() => h.remove(), 16000);
+}
+for (let i = 0; i < 12; i++) setTimeout(spawnHeart, i * 280);
+setInterval(spawnHeart, 500);
+
+/* ========== FLOR (pétalos generados) ========== */
+const blossom = document.getElementById('blossom');
+const OUTER = 8, INNER = 6;
+
+for (let i = 0; i < OUTER; i++){
+  const wrap = document.createElement('div');
+  wrap.className = 'petal-wrap';
+  wrap.style.setProperty('--a', (i * 360 / OUTER) + 'deg');
+  const p = document.createElement('i');
+  p.className = 'petal';
+  p.style.setProperty('--d', (0.55 + i * 0.07) + 's');
+  wrap.appendChild(p);
+  blossom.appendChild(wrap);
+}
+for (let i = 0; i < INNER; i++){
+  const wrap = document.createElement('div');
+  wrap.className = 'petal-wrap';
+  wrap.style.setProperty('--a', (i * 360 / INNER + 30) + 'deg');
+  const p = document.createElement('i');
+  p.className = 'petal inner';
+  p.style.setProperty('--d', (0.85 + i * 0.06) + 's');
+  wrap.appendChild(p);
+  blossom.appendChild(wrap);
+}
+
+/* ========== MELODÍA SUAVE (sin archivos de audio) ========== */
+function playChime(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // Do - Mi - Sol - Do
+    notes.forEach((f, i) => {
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.value = f;
+      o.connect(g); g.connect(ctx.destination);
+      const t = ctx.currentTime + i * 0.17;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.16, t + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 1.5);
+      o.start(t); o.stop(t + 1.6);
+    });
+  }catch(e){ /* si el navegador lo bloquea, no pasa nada */ }
+}
+
+/* ========== EL POEMA ========== */
+const POEM = [
+  "Si pudiera elegir entre todos los versos,",
+  "elegiría tu nombre para el primero,",
+  "porque antes de aprender a leer el mundo,",
+  "tú me enseñaste, mamá, a leer el cielo.",
+  "",
+  "Hay manos que sostienen y manos que abrazan,",
+  "las tuyas hacen las dos cosas a la vez:",
+  "son refugio de invierno, pan de cada día",
+  "y el lugar a donde siempre quiero volver.",
+  "",
+  "Dicen que no existen los milagros,",
+  "pero yo te vi convertir la rutina en hogar:",
+  "levantarte cansada y aun así sonreírme,",
+  "darlo todo sin pedir nada a cambio, jamás.",
+  "",
+  "Gracias por cada noche que velaste,",
+  "por cada sacrificio que nunca mencionaste,",
+  "porque tu amor no hace ruido, mamá,",
+  "pero sostiene mi vida entera en silencio."
+];
+
+let skipTyping = false;
+document.getElementById('skipBtn').addEventListener('click', () => { skipTyping = true; });
+
+async function typePoem(){
+  const out = document.getElementById('poem');
+  const caret = document.createElement('span');
+  caret.className = 'caret';
+
+  for (const line of POEM){
+    const p = document.createElement('p');
+    if (line === ''){
+      p.className = 'gap';
+      out.appendChild(p);
+      if (!skipTyping) await sleep(220);
+      continue;
+    }
+    out.appendChild(p);
+    p.appendChild(caret);
+    const text = document.createTextNode('');
+    p.insertBefore(text, caret);
+
+    for (const ch of line){
+      if (skipTyping){ text.nodeValue = line; break; }
+      text.nodeValue += ch;
+      await sleep(ch === ' ' ? 8 : 22);
+    }
+    if (!skipTyping){
+      p.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      await sleep(240);
+    }
+  }
+
+  caret.remove();
+  document.getElementById('skipBtn').style.display = 'none';
+  await sleep(500);
+  document.getElementById('love').classList.add('show');
+}
+
+/* ========== ABRIR EL REGALO ========== */
+document.getElementById('openBtn').addEventListener('click', function(){
+  this.disabled = true;
+  playChime();
+  document.getElementById('cover').classList.add('gone');
+  document.body.classList.remove('locked');
+  document.getElementById('card').classList.add('show');
+  setTimeout(typePoem, 800);
+});
+
+/* ========== EXPLOSIÓN DE CORAZONES ========== */
+function burst(x, y){
+  for (let i = 0; i < 30; i++){
+    const s = document.createElement('span');
+    s.className = 'burst';
+    s.textContent = ['💖','💕','🌸','✨','💗','🌷'][i % 6];
+    const ang = Math.random() * Math.PI * 2;
+    const dist = 80 + Math.random() * 200;
+    s.style.setProperty('--x', Math.cos(ang) * dist + 'px');
+    s.style.setProperty('--y', Math.sin(ang) * dist + 'px');
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    s.style.fontSize = (12 + Math.random() * 20) + 'px';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1400);
+  }
+}
+
+document.getElementById('finalBtn').addEventListener('click', function(e){
+  const r = this.getBoundingClientRect();
+  burst(r.left + r.width / 2, r.top + r.height / 2);
+  playChime();
+  document.getElementById('finalMsg').classList.add('show');
+  this.textContent = 'Te amo, mamá 💖';
+  this.disabled = true;
+});
+</script>
+</body>
+</html>

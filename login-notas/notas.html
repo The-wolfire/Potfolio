@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas - App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="notes-body">
+    
+    <!-- Barra superior -->
+    <header class="notes-header">
+        <h2><i class="fas fa-sticky-note"></i> Mis Notas</h2>
+        <div>
+            <button id="btnNuevaNota" class="btn-nueva"><i class="fas fa-plus"></i> Nueva Nota</button>
+            <button id="btnCerrarSesion" class="btn-salir"><i class="fas fa-sign-out-alt"></i> Salir</button>
+        </div>
+    </header>
+
+    <!-- Contenedor de notas -->
+    <main id="contenedorNotas" class="notes-grid">
+        <!-- Aquí JavaScript inyectará las notas -->
+    </main>
+
+    <script src="notas.js"></script>
+</body>
+</html>

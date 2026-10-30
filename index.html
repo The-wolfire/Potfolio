@@ -3,108 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Personal</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Thiago Nuñez | Backend Developer</title>
+    <!-- Fuente profesional de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>Mi Espacio Personal</h1>
-    <p>
-        Bienvenido a mi rincón en la web. Esta página está diseñada para compartir 
-        información sobre mí, mis intereses y ofrecer un medio de contacto directo. 
-        Es un proyecto en crecimiento, así que pronto habrá más contenido.
-    </p>
+    <!-- Menú de navegación fijo y limpio -->
+    <nav class="navbar">
+        <div class="nav-brand">Thiago.dev</div>
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-    <div class="enlaces-externos">
-        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-    </div>
+    <!-- Sección Principal (Hero) -->
+    <header id="hero" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="badge">Backend Developer Junior</span>
+                <h1>Hola, soy <span class="highlight">Thiago Nuñez</span></h1>
+                <p>Apasionado por la programación y el desarrollo Backend. Enfocado en crear soluciones eficientes, manejo de bases de datos y lógica de servidor. Abierto al trabajo en equipo y al liderazgo cuando el proyecto lo requiere.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary">Contactarme</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Reemplaza 'avatar.jpg' por el nombre exacto de tu foto -->
+                <img src="avatar.jpg" alt="Foto de Thiago Nuñez">
+            </div>
+        </div>
+    </header>
 
-    <ul class="menu-navegacion">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="section-container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="card about-card">
+            <p>Mi nombre es Thiago y me apasiona todo lo relacionado con la programación. Soy un entusiasta del Backend, enfocado en escribir código limpio y parametrizado.</p>
+            <p>Me destaco por mi capacidad de adaptación, trabajo en equipo y mi compromiso con los principios y objetivos de la empresa. Si buscas a alguien fiel, proactivo y que ponga los intereses del equipo primero, estás en el lugar correcto.</p>
+        </div>
+    </section>
 
-    <div id="inicio" class="seccion">
-        <h2>Inicio</h2>
-        <p>
-        Aqui puedes encontrar productos o servicios donde te sentirás como en tu casa, con un ambiente agradable y acogedor. Nuestro objetivo es brindarte una experiencia única y personalizada, adaptada a tus necesidades y preferencias.
-        </p>
-    </div>
+    <!-- Sección de Habilidades (Tecnologías) -->
+    <section id="habilidades" class="section-container">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category card">
+                <h3><i class="fas fa-server"></i> Backend</h3>
+                <ul>
+                    <li>Java (Básico)</li>
+                    <li>Python (Manejo sencillo)</li>
+                    <li>PHP</li>
+                </ul>
+            </div>
+            <div class="skill-category card">
+                <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                <ul>
+                    <li>SQL (Conocimientos en consultas)</li>
+                    <li>Modelado de datos</li>
+                </ul>
+            </div>
+            <div class="skill-category card">
+                <h3><i class="fas fa-code"></i> Frontend & Otros</h3>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>Control de versiones (Git/GitHub)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <div id="sobre-mi" class="seccion">
-        <h2>Sobre mí</h2>
-        Soy una persona apasionada por la tecnología y el arte de la programación. En esta sección encontrarás más detalles sobre mi vida, mis intereses y mis proyectos personales
-        <p>
-            Soy alguien quien desde que terminé mis estudios en informática. Me encanta aprender nuevas tecnologías y moder utilizarlas nuestros dia a dia.
-        </p>
-        <p>
-            Soy una persona creativa, siempre buscando nuevas formas de resolver problemas y mejorar mis habilidades.
-        </p>
-    </div>
+    <!-- Sección de Proyectos -->
+    <section id="proyectos" class="section-container">
+        <h2 class="section-title">Proyectos</h2>
+        <div class="projects-grid">
+            
+            <!-- Proyecto 1 -->
+            <div class="project-card card">
+                <h3>Sistema de Login de Notas</h3>
+                <p>Aplicación web para la gestión y autenticación de usuarios con el fin de visualizar y administrar notas.</p>
+                <div class="tech-tags">
+                    <span>HTML</span> <span>CSS</span> <span>PHP</span>
+                </div>
+                <a href="index.html" class="project-link" target="_blank">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-    <div id="contacto" class="seccion">
-        <h2>Contacto</h2>
-        <form action="#" method="post">
+            <!-- Proyecto 2 -->
+            <div class="project-card card">
+                <h3>Contador Web</h3>
+                <p>Aplicación interactiva para la gestión de conteo en tiempo real, diseñada para practicar la manipulación del DOM y lógica de JavaScript.</p>
+                <div class="tech-tags">
+                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                </div>
+                <a href="contador.html" class="project-link" target="_blank">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            <!-- Proyecto 3 (El que ya tenías) -->
+            <div class="project-card card">
+                <h3>Segundo Proyecto Sencillo</h3>
+                <p>Proyecto de práctica enfocado en la lógica de programación y estructura de código. Repositorio disponible en GitHub.</p>
+                <div class="tech-tags">
+                    <span>GitHub</span> <span>Código Abierto</span>
+                </div>
+                <a href="https://github.com/The-wolfire/second-project" class="project-link" target="_blank">Ver en GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+            <!-- Proyecto 4 (Nuevo - Ejemplo Java/Python) -->
+            <div class="project-card card">
+                <h3>Sistema de Gestión (Ejemplo)</h3>
+                <p>Desarrollo de un sistema de consola para la gestión de inventario o tareas, implementando POO y conexión a base de datos SQL.</p>
+                <div class="tech-tags">
+                    <span>Java</span> <span>SQL</span> <span>Python</span>
+                </div>
+                <a href="#" class="project-link" target="_blank">Próximamente <i class="fas fa-clock"></i></a>
+            </div>
 
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+            <!-- Proyecto 5 (Marketplace - Futuro) -->
+            <div class="project-card card future-project">
+                <h3>Marketplace (En Desarrollo)</h3>
+                <p>Proyecto futuro: Plataforma de comercio electrónico con gestión de usuarios, carrito de compras y pasarela de pagos.</p>
+                <div class="tech-tags">
+                    <span>PHP</span> <span>MySQL</span> <span>Arquitectura MVC</span>
+                </div>
+                <a href="#" class="project-link disabled" target="_blank">En desarrollo <i class="fas fa-tools"></i></a>
+            </div>
 
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
+        </div>
+    </section>
 
-            <fieldset>
-                <legend>¿Cómo me conociste?</legend>
-                <label>
-                    <input type="radio" name="origen" value="redes-sociales">
-                    Redes Sociales
-                </label>
-                <label>
-                    <input type="radio" name="origen" value="recomendacion">
-                    Recomendación
-                </label>
-                <label>
-                    <input type="radio" name="origen" value="otro">
-                    Otro
-                </label>
-            </fieldset>
-
-            <fieldset>
-                <legend>Intereses:</legend>
-                <label>
-                    <input type="checkbox" name="intereses" value="tecnologia">
-                    Tecnología
-                </label>
-                <label>
-                    <input type="checkbox" name="intereses" value="arte">
-                    Arte
-                </label>
-                <label>
-                    <input type="checkbox" name="intereses" value="deportes">
-                    Deportes
-                </label>
-            </fieldset>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
-
-            <button type="submit">Enviar</button>
-
-        </form>
-    </div>
-
-    <footer>
-        <p>
-            &copy; 2026 Mi Página Personal. Todos los derechos reservados.
-        </p>
+    <!-- Sección de Contacto / Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h2>¿Hablamos?</h2>
+            <p>Estoy disponible para nuevos desafíos y oportunidades en el mundo del desarrollo Backend.</p>
+            <div class="social-icons">
+                <a href="https://github.com/The-wolfire" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/rulos_dorados_/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/3764383611" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:tu-correo@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">&copy; 2024 Thiago Nuñez. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
